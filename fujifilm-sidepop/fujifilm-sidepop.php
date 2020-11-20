@@ -153,7 +153,7 @@ class Sidepop {
 function checkFrontPage(){
 	$mySidepopClass = new Sidepop();
 	
-	if ( (get_option('front_page_only') &&  is_front_page() && ( get_option('activate_1') || get_option('activate_2') ) ) || (get_option('include_product_pages') && is_product() ) ) {
+	if ( (get_option('front_page_only') &&  is_front_page() && ( get_option('activate_1') || get_option('activate_2') ) ) || (get_option('include_product_pages') && class_exists('WooCommerce') &&  is_product() ) ) {
 		add_action('get_footer', array($mySidepopClass, 'addCSS'));
 		add_action('get_footer', array($mySidepopClass, 'addButton'));
 	}
